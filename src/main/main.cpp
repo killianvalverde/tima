@@ -19,7 +19,7 @@
 
 /**
  * @file        main/main.hpp
- * @brief       main entry point.
+ * @brief       tima entry point.
  * @author      Killian Valverde
  * @date        2024/07/17
  */
@@ -41,6 +41,18 @@ int main(int argc, char* argv[])
         
         ap.add_help_menu()
                 .description("Performs a time attack.");
+        
+        ap.add_key_value_arg("-s", "--seconds")
+                .description("Set the number of seconds.")
+                .store_into(&prog_args.secs);
+        
+        ap.add_key_value_arg("-m", "--minutes")
+                .description("Set the number of minutes.")
+                .store_into(&prog_args.mins);
+        
+        ap.add_key_value_arg("-H", "--hours")
+                .description("Set the number of hours.")
+                .store_into(&prog_args.hors);
                 
         ap.add_help_arg("--help", "-h")
                 .description("Display this help and exit.");
@@ -48,6 +60,8 @@ int main(int argc, char* argv[])
         ap.add_version_arg("--version", "-v")
                 .description("Output version information and exit.")
                 .gplv3_version_information("0.0.0", "2024", "Killian Valverde");
+        
+        ap.add_at_least_one_found_constraint("-s", "-m", "-H");
 
         ap.parse_args(argc, argv);
         

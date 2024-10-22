@@ -55,6 +55,9 @@ public:
     int execute();
 
 private:
+    void time_attack(std::uint64_t hours, std::uint64_t minutes, std::uint64_t seconds);
+    
+    void play_beep();
 
 private:
     /** The program arguments. */
