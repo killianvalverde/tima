@@ -18,8 +18,8 @@
  */
 
 /**
- * @file        tima/program_args.hpp
- * @brief       program_args struct header.
+ * @file        tima/program.hpp
+ * @brief       program class header.
  * @author      Killian Valverde
  * @date        2024/07/17
  */
@@ -36,6 +36,9 @@ namespace tima {
  */
 struct program_args
 {
+    std::uint64_t secs = 0;
+    std::uint64_t mins = 0;
+    std::uint64_t hors = 0;
 };
 
 
